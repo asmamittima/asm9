@@ -3,45 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text to Image Converter</title>
+    <title>Age Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Text to Image Converter</h1>
+        <h1>Age Calculator</h1>
 
-        <!-- Form for Text File Upload -->
-        <form id="textFileForm">
-            <label for="textFileInput">Upload Text File:</label>
-            <input type="file" id="textFileInput" accept=".txt">
-            <button type="submit">Convert to Image</button>
+        <!-- Form for Date of Birth Input -->
+        <form id="ageCalculatorForm">
+            <label for="dobInput">Enter Your Date of Birth:</label>
+            <input type="date" id="dobInput" required>
+            <button type="submit">Calculate Age</button>
         </form>
 
-        <hr>
-
-        <!-- Form for AI Text-to-Image Conversion -->
-        <form id="aiTextToImageForm">
-            <label for="aiTextInput">Enter Text for AI Image Generation:</label>
-            <input type="text" id="aiTextInput" placeholder="Describe the image you want">
-
-            <!-- Image Size Dropdown -->
-            <label for="imageSize">Select Image Size:</label>
-            <select id="imageSize">
-                <option value="400x200">400x200</option>
-                <option value="800x600">800x600</option>
-                <option value="1024x768">1024x768</option>
-            </select>
-
-            <button type="submit">Generate Image with AI</button>
-        </form>
-
-        <!-- Image Output -->
-        <div id="aiImageOutput"></div>
-
-        <!-- Download Link -->
-        <a id="aiDownloadLink" style="display: none;" download="ai-output.png">Download Image</a>
+        <!-- Display Age Result -->
+        <div id="ageResult"></div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.4/dist/tesseract.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

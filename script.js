@@ -1,49 +1,29 @@
-// AI Text-to-Image Conversion
-document.getElementById('aiTextToImageForm').addEventListener('submit', function (e) {
+document.getElementById('ageCalculatorForm').addEventListener('submit', function (e) {
     e.preventDefault();
-    const textInput = document.getElementById('aiTextInput').value;
 
-    if (!textInput) {
-        alert('Please enter some text.');
+    // Get the user's date of birth
+    const dobInput = document.getElementById('dobInput').value;
+
+    if (!dobInput) {
+        alert('Please enter your date of birth.');
         return;
     }
 
-    // Get selected image size
-    const imageSize = document.getElementById('imageSize').value.split('x');
-    const width = parseInt(imageSize[0]);
-    const height = parseInt(imageSize[1]);
+    // Convert the input date to a Date object
+    const dob = new Date(dobInput);
+    const today = new Date();
 
-    // Show loading indicator
-    const aiImageOutput = document.getElementById('aiImageOutput');
-    aiImageOutput.innerHTML = '<p>Loading...</p>';
+    // Calculate the difference in years and months
+    let years = today.getFullYear() - dob.getFullYear();
+    let months = today.getMonth() - dob.getMonth();
 
-    // Call DeepAI API
-    fetch('https://api.deepai.org/api/text2img', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Api-Key': 'YOUR_DEEPAI_API_KEY' // Replace with your DeepAI API key
-        },
-        body: JSON.stringify({
-            text: textInput,
-            width: width,
-            height: height
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        const imageUrl = data.output_url;
+    // Adjust the years and months if the current month/day is before the birth month/day
+    if (months < 0 || (months === 0 && today.getDate() < dob.getDate())) {
+        years--;
+        months += 12;
+    }
 
-        // Display the generated image
-        aiImageOutput.innerHTML = `<img src="${imageUrl}" alt="Generated Image" style="max-width: 100%;">`;
-
-        // Add download link
-        const aiDownloadLink = document.getElementById('aiDownloadLink');
-        aiDownloadLink.href = imageUrl;
-        aiDownloadLink.style.display = 'block';
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        aiImageOutput.innerHTML = '<p>Error generating image. Please try again.</p>';
-    });
+    // Display the result
+    const ageResult = document.getElementById('ageResult');
+    ageResult.innerHTML = `Your Age: <strong>${years} years and ${months} months</strong>`;
 });

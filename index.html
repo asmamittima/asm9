@@ -9,12 +9,28 @@
 <body>
     <div class="container">
         <h1>Text to Image Converter</h1>
-        <form id="textToImageForm">
-            <label for="textInput">Enter Text:</label>
-            <input type="text" id="textInput" placeholder="Type your text here">
+
+        <!-- Form for Text File Upload -->
+        <form id="textFileForm">
+            <label for="textFileInput">Upload Text File:</label>
+            <input type="file" id="textFileInput" accept=".txt">
             <button type="submit">Convert to Image</button>
         </form>
+
         <div id="imageOutput"></div>
+        <a id="downloadLink" style="display: none;" download="output.png">Download Image</a>
+
+        <hr>
+
+        <!-- Form for Image File Upload -->
+        <form id="imageFileForm">
+            <label for="imageFileInput">Upload Image File:</label>
+            <input type="file" id="imageFileInput" accept="image/*">
+            <button type="submit">Extract Text</button>
+        </form>
+
+        <div id="textOutput"></div>
+        <a id="downloadTextLink" style="display: none;" download="output.txt">Download Text</a>
     </div>
     <script src="script.js"></script>
 </body>

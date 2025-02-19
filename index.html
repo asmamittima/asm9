@@ -17,21 +17,31 @@
             <button type="submit">Convert to Image</button>
         </form>
 
-        <div id="imageOutput"></div>
-        <a id="downloadLink" style="display: none;" download="output.png">Download Image</a>
-
         <hr>
 
-        <!-- Form for Image File Upload -->
-        <form id="imageFileForm">
-            <label for="imageFileInput">Upload Image File:</label>
-            <input type="file" id="imageFileInput" accept="image/*">
-            <button type="submit">Extract Text</button>
+        <!-- Form for AI Text-to-Image Conversion -->
+        <form id="aiTextToImageForm">
+            <label for="aiTextInput">Enter Text for AI Image Generation:</label>
+            <input type="text" id="aiTextInput" placeholder="Describe the image you want">
+
+            <!-- Image Size Dropdown -->
+            <label for="imageSize">Select Image Size:</label>
+            <select id="imageSize">
+                <option value="400x200">400x200</option>
+                <option value="800x600">800x600</option>
+                <option value="1024x768">1024x768</option>
+            </select>
+
+            <button type="submit">Generate Image with AI</button>
         </form>
 
-        <div id="textOutput"></div>
-        <a id="downloadTextLink" style="display: none;" download="output.txt">Download Text</a>
+        <!-- Image Output -->
+        <div id="aiImageOutput"></div>
+
+        <!-- Download Link -->
+        <a id="aiDownloadLink" style="display: none;" download="ai-output.png">Download Image</a>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.4/dist/tesseract.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

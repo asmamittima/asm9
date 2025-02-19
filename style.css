@@ -16,13 +16,19 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 90%;
-    max-width: 500px;
+    max-width: 400px;
 }
 
-input[type="file"], input[type="text"], select {
-    margin: 10px 0;
-    padding: 10px;
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input[type="date"] {
     width: 100%;
+    padding: 10px;
+    margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -40,10 +46,10 @@ button:hover {
     background-color: #0056b3;
 }
 
-#aiImageOutput img {
+#ageResult {
     margin-top: 20px;
-    max-width: 100%;
-    height: auto;
+    font-size: 1.2em;
+    color: #333;
 }
 
 @media (max-width: 600px) {

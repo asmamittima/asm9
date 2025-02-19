@@ -15,14 +15,12 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
 }
 
-input[type="text"] {
-    width: 80%;
-    padding: 10px;
+input[type="file"] {
     margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
 }
 
 button {
@@ -36,6 +34,12 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+#imageOutput img {
+    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
 }
 
 @media (max-width: 600px) {
